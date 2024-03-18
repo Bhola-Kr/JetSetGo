@@ -42,8 +42,8 @@ export type FlightProps = {
 export type SortModalProps = {
   visible: boolean;
   onClose: () => void;
+  onApply: () => void;
   onSelectOption: (option: string) => void;
-  options: string[]; // Array of sorting options
   selectedOption: string;
 };
 

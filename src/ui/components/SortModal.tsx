@@ -10,8 +10,8 @@ import {StatusBar} from './StatusBar';
 export const SortModal = ({
   visible,
   onClose,
+  onApply,
   onSelectOption,
-  options,
   selectedOption,
 }: SortModalProps) => {
   return (
@@ -22,17 +22,30 @@ export const SortModal = ({
       />
       <TouchableOpacity style={styles.modalContainer} onPress={onClose}>
         <View style={styles.modalContent}>
-          {options.map(option => (
-            <SortOption
-              key={option}
-              label={`Sort by ${option}`}
-              selected={selectedOption === option}
-              onPress={() => onSelectOption(option)}
-            />
-          ))}
-          <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-            <Text style={styles.closeButtonText}>Close</Text>
-          </TouchableOpacity>
+          <Text style={styles.sortText}>Sort By Price</Text>
+          <SortOption
+            label={`Sort by Price (Low to High)`}
+            selected={selectedOption === 'priceLowToHigh'}
+            onPress={() => onSelectOption('priceLowToHigh')}
+          />
+          <SortOption
+            label={`Sort by Price (High to Low)`}
+            selected={selectedOption === 'priceHighToLow'}
+            onPress={() => onSelectOption('priceHighToLow')}
+          />
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.applyButton}
+              onPress={() => {
+                onClose();
+                onApply();
+              }}>
+              <Text style={styles.buttonText}>Apply</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cancelButton} onPress={onClose}>
+              <Text style={styles.buttonText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </TouchableOpacity>
     </Modal>
@@ -53,16 +66,35 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
   },
-  closeButton: {
-    marginTop: 20,
-    alignSelf: 'stretch',
+  buttonContainer: {
+    flexDirection: 'row',
+    marginTop: 40,
+    marginBottom: 10,
+  },
+  applyButton: {
+    flex: 1,
+    backgroundColor: colors.PRIMARY,
+    paddingVertical: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+    marginRight: 10,
+  },
+  cancelButton: {
+    flex: 1,
     backgroundColor: colors.PRIMARY,
     paddingVertical: 10,
     borderRadius: 5,
     alignItems: 'center',
   },
-  closeButtonText: {
+  buttonText: {
     color: colors.WHITE,
     fontSize: 16,
+  },
+  sortText: {
+    color: colors.PRIMARY,
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingBottom: 25,
+    paddingTop: 10,
   },
 });
