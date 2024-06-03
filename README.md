@@ -1,4 +1,4 @@
-## Assignment: JetSetGo - React Native Flight App
+## JetSetGo - React Native Flight App
 
 This is a React Native application for searching flights based on airline names and sorting them by price. It allows users to filter flights by airline name and sort them by price in either ascending or descending order.
 
