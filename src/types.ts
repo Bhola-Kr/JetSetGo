@@ -5,6 +5,7 @@ export type RootStackParamList = {
   TravelRequestScreen: {flightItem: FlightProps};
   HomeScreen: undefined;
   SplashScreen: undefined;
+  WallPaperScreen: undefined;
 };
 
 createNativeStackNavigator<RootStackParamList>();

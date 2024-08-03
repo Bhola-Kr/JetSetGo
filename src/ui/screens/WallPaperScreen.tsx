@@ -10,7 +10,7 @@ import {StatusBar} from '../components/StatusBar';
 
 import {RootStackParamList} from '../../types';
 
-const SplashScreen = () => {
+const WallPaperScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -21,11 +21,6 @@ const SplashScreen = () => {
       <StatusBar
         backgroundColor={colors.BG_PRIMARY}
         barStyle={'light-content'}
-      />
-      <Image
-        source={require('../assets/flight.png')}
-        style={styles.image}
-        resizeMode="contain"
       />
 
       <Text style={styles.versionText}>
@@ -52,4 +47,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SplashScreen;
+export default WallPaperScreen;

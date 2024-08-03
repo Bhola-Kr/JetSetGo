@@ -5,6 +5,7 @@ import HomeScreen from '../ui/screens/HomeScreen';
 import TravelRequestScreen from '../ui/screens/TravelRequestScreen';
 import SplashScreen from '../ui/screens/SplashScreen';
 import colors from '../ui/styles/colors';
+import WallPaperScreen from '../ui/screens/WallPaperScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,11 @@ const MainStackNavigator = () => {
         name="TravelRequestScreen"
         component={TravelRequestScreen}
         options={{title: 'Travel Request'}}
+      />
+      <Stack.Screen
+        name="WallPaperScreen"
+        component={WallPaperScreen}
+        options={{title: 'WallPaper', headerShown: false}}
       />
     </Stack.Navigator>
   );
